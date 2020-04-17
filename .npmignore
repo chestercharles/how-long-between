@@ -1,6 +1,7 @@
 src
 test
 .babelrc
+tsconfig.json
 package-lock.json
 
 npm-debug.log*
