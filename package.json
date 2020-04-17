@@ -7,7 +7,7 @@
   "scripts": {
     "build": "tsc --emitDeclarationOnly && mv src/index.d.ts index.d.ts && npx babel src --extensions \".ts\" --out-dir .",
     "clean": "rm -rf index.*",
-    "test": "mocha -r ts-node/register tests/**/*.test.ts",
+    "test": "mocha -r ts-node/register test/**/*.test.ts",
     "coverage": "nyc -r lcov -e .ts -x \"*.test.ts\" npm run test",
     "prepublish": "npm run clean && npm run build"
   },
