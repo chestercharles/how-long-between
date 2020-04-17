@@ -1,3 +1,9 @@
+dist
+src/index.d.ts
+index.d.ts
+index.d.js
+index.js
+
 # Logs
 logs
 *.log
