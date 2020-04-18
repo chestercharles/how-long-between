@@ -2,6 +2,12 @@
 
 Calculates the years, months, days, hours, minutes, seconds and milliseconds between two dates
 
+## Install
+
+```
+npm i --save how-long-between
+```
+
 ## Usage
 
 ```
