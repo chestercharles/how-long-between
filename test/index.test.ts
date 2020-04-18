@@ -84,7 +84,9 @@ describe("calculates time between", function () {
     expect(years).to.equal(6), "years";
   });
   it("Dec 31st and Jan 1st, 1hr, 37min, 6secs and 40ms later of 7 years later", function () {
-    const startDate = new Date("Dec 31 2020 17:00:00");
+    const startDate = new Date(
+      "Dec 31 2020 17:00:00 GMT-0700 (Mountain Standard Time"
+    );
     const endDate = new Date(1798853826040);
 
     const {
