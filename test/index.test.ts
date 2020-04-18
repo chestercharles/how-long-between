@@ -53,19 +53,34 @@ describe("calculates time between", function () {
     expect(months).to.equal(0, "months");
     expect(years).to.equal(0), "years";
   });
-  it("Dec 31st and Jan 1st, 1hr, 37min, and 6 secs later of the following year", function () {
+  it("Dec 31st and Dec 31st, 1 sec later of the following year", function () {
     const startDate = new Date("Dec 31 2020 17:00:00");
-    const endDate = new Date("Jan 1 2021 18:37:06");
+    const endDate = new Date("Dec 31 2021 17:00:01");
 
     const { seconds, minutes, hours, days, months, years } = howLongBetween(
       startDate,
       endDate
     );
-    expect(seconds).to.equal(6, "minutes");
-    expect(minutes).to.equal(37, "minutes");
-    expect(hours).to.equal(1, "hours");
-    expect(days).to.equal(1, "days");
+    expect(seconds).to.equal(1, "seconds");
+    expect(minutes).to.equal(0, "minutes");
+    expect(hours).to.equal(0, "hours");
+    expect(days).to.equal(0, "days");
     expect(months).to.equal(0, "months");
+    expect(years).to.equal(1, "years");
+  });
+  it("Dec 31st and Dec 31st, 1 sec earlier of the following year", function () {
+    const startDate = new Date("Dec 31 2020 13:00:00 GMT");
+    const endDate = new Date("Dec 31 2021 12:59:59 GMT");
+
+    const { seconds, minutes, hours, days, months, years } = howLongBetween(
+      startDate,
+      endDate
+    );
+    expect(seconds).to.equal(59, "seconds");
+    expect(minutes).to.equal(59, "minutes");
+    expect(hours).to.equal(23, "hours");
+    expect(days).to.equal(29, "days");
+    expect(months).to.equal(11, "months");
     expect(years).to.equal(0, "years");
   });
   it("Dec 31st and Jan 1st, 1hr, 37min, and 6 secs later of 7 years later", function () {
@@ -82,6 +97,29 @@ describe("calculates time between", function () {
     expect(days).to.equal(1, "days");
     expect(months).to.equal(0, "months");
     expect(years).to.equal(6), "years";
+  });
+  it("Dec 31st and Jan 1st, 1hr, 37min, 6secs and 40ms later of 7 years later", function () {
+    const startDate = new Date(
+      "Dec 31 2020 17:00:00 GMT-0700 (Mountain Standard Time)"
+    );
+    const endDate = new Date(1798853826040);
+
+    const {
+      milliseconds,
+      seconds,
+      minutes,
+      hours,
+      days,
+      months,
+      years,
+    } = howLongBetween(startDate, endDate);
+    expect(milliseconds).to.equal(40, "milliseconds");
+    expect(seconds).to.equal(6, "seconds");
+    expect(minutes).to.equal(37, "minutes");
+    expect(hours).to.equal(1, "hours");
+    expect(days).to.equal(1, "days");
+    expect(months).to.equal(0, "months");
+    expect(years).to.equal(6, "years");
   });
   it("Dec 31st and Jan 1st, 1hr, 37min, 6secs and 40ms later of 7 years later", function () {
     const startDate = new Date(
