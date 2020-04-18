@@ -2,6 +2,8 @@
 
 Calculates the years, months, days, hours, minutes, seconds and milliseconds between two dates
 
+[![Build Status](https://travis-ci.com/chestercharles/how-long-between.svg?branch=master)](https://travis-ci.com/chestercharles/how-long-between)
+
 ## Install
 
 ```
