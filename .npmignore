@@ -10,3 +10,4 @@ _vimrc_local.vim
 .git
 .eslintcache
 .node_repl_history
+.travis.yml
