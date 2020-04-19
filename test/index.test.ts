@@ -69,8 +69,8 @@ describe("calculates time between", function () {
     expect(years).to.equal(1, "years");
   });
   it("Dec 31st and Dec 31st, 1 sec earlier of the following year", function () {
-    const startDate = new Date("Dec 31 2020 13:00:00 GMT");
-    const endDate = new Date("Dec 31 2021 12:59:59 GMT");
+    const startDate = new Date("Dec 4 2020 13:00:00 GMT");
+    const endDate = new Date("Dec 4 2021 12:59:59 GMT");
 
     const { seconds, minutes, hours, days, months, years } = howLongBetween(
       startDate,
@@ -97,6 +97,43 @@ describe("calculates time between", function () {
     expect(days).to.equal(1, "days");
     expect(months).to.equal(0, "months");
     expect(years).to.equal(6), "years";
+  });
+  it("Dec 31st and Jan 1st, 1hr, 37min, and 6 secs earlier of 7 years ago", function () {
+    const startDate = new Date("Dec 31 2020 18:37:06");
+    const endDate = new Date("Jan 1 2027 17:00:00");
+
+    const { seconds, minutes, hours, days, months, years } = howLongBetween(
+      startDate,
+      endDate
+    );
+    expect(seconds).to.equal(54, "seconds");
+    expect(minutes).to.equal(22, "minutes");
+    expect(hours).to.equal(22, "hours");
+    expect(days).to.equal(0, "days");
+    expect(months).to.equal(0, "months");
+    expect(years).to.equal(6), "years";
+  });
+  it("now and 1 millisecond ago tomorrow", function () {
+    const startDate = new Date();
+    const endDate = new Date(startDate.getTime() - 1);
+    endDate.setDate(endDate.getDate() + 1);
+
+    const {
+      seconds,
+      minutes,
+      hours,
+      days,
+      months,
+      years,
+      milliseconds,
+    } = howLongBetween(startDate, endDate);
+    expect(milliseconds).to.equal(999, "milliseconds");
+    expect(seconds).to.equal(59, "seconds");
+    expect(minutes).to.equal(59, "minutes");
+    expect(hours).to.equal(23, "hours");
+    expect(days).to.equal(0, "days");
+    expect(months).to.equal(0, "months");
+    expect(years).to.equal(0), "years";
   });
   it("Dec 31st and Jan 1st, 1hr, 37min, 6secs and 40ms later of 7 years later", function () {
     const startDate = new Date(
@@ -147,7 +184,6 @@ describe("calculates time between", function () {
   it("the beginning of unix time and the end of javascript", function () {
     const startDate = new Date(0);
     const endDate = new Date(8640000000000000);
-
     const { seconds, minutes, hours, days, months, years } = howLongBetween(
       startDate,
       endDate
