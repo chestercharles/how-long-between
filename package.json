@@ -1,6 +1,6 @@
 {
   "name": "how-long-between",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Calculates the years, months, days, hours, minutes, seconds and milliseconds between two dates",
   "main": "index.js",
   "types": "index.d.ts",

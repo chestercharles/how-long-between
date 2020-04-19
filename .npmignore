@@ -11,3 +11,5 @@ _vimrc_local.vim
 .eslintcache
 .node_repl_history
 .travis.yml
+coverage
+.nyc_output
