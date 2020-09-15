@@ -31,6 +31,6 @@ const {
 
 ## Business Rules
 
-One month from a date is the number of days in that month added to the date. So one month from January 31st would be March 2nd if that year was a leap year or March 3rd if that was not a leap year. Therefore, the amount of time between May 13st and Jun 30th is 30 days _not_ one month.
+One month from a date is the number of days in that month added to the date. So one month from January 31st would be March 2nd, if that year was a leap year, or March 3rd, if that was not a leap year. Therefore, the amount of time between May 13th and Jun 30th is 30 days, _not_ one month.
 
-Similiarly, one year from a date is the number of days in that year added to the date. So 1 year from February 29th would be March 1st of the following year.
+Similiarly, one year from a given date is the number of days in that year added to the date. So 1 year from February 29th would be March 1st of the following year.
